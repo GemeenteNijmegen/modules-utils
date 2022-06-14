@@ -1,5 +1,2 @@
-export class Hello {
-  public sayHello() {
-    return 'hello, world!';
-  }
-}
+import { Bsn } from './Bsn';
+exports.Bsn = Bsn;
