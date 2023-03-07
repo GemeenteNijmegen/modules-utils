@@ -12,7 +12,7 @@ const project = new GemeenteNijmegenTsPackage({
   },
   devDeps: [
     '@gemeentenijmegen/projen-project-type',
-  ], 
+  ],
   packageName: projectName,
   enableAutoMergeDependencies: false, // No acceptance branch
 });
