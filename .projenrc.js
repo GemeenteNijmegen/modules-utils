@@ -1,21 +1,19 @@
-const { typescript } = require('projen');
-const { NpmAccess } = require('projen/lib/javascript');
+const { GemeenteNijmegenTsPackage } = require('@gemeentenijmegen/projen-project-type');
 
 const projectName = '@gemeentenijmegen/utils';
 
-const project = new typescript.TypeScriptProject({
+const project = new GemeenteNijmegenTsPackage({
   defaultReleaseBranch: 'main',
   name: projectName,
-  defaultReleaseBranch: 'main',
-  license: 'EUPL-1.2',
-  release: true,
-  releaseToNpm: true,
-  npmAccess: NpmAccess.PUBLIC,
-  deps: [
-  ], /* Runtime dependencies of this module. */
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
+  depsUpgradeOptions: {
+    workflowOptions: {
+      branches: ['main'], // No acceptance branch
+    },
+  },
   devDeps: [
-  ], /* Build dependencies for this module. */
-  packageName: projectName, /* The "name" in package.json. */
+    '@gemeentenijmegen/projen-project-type',
+  ], 
+  packageName: projectName,
+  enableAutoMergeDependencies: false, // No acceptance branch
 });
 project.synth();
