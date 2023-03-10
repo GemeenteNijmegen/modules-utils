@@ -12,7 +12,7 @@ export class AWS {
   /**
    * Retrieves a secret from the secrets store given an ARN
    * Note: only string secrets are supported (binary values are ignored).
-   * @param arn 
+   * @param arn
    * @returns the secret as a string
    */
   static async getSecret(arn: string) : Promise<string> {
@@ -34,8 +34,8 @@ export class AWS {
     const client = new SSMClient({});
     const command = new GetParameterCommand({ Name: name });
     const data = await client.send(command);
-    if(data.Parameter?.Value){
-      return data.Parameter?.Value
+    if (data.Parameter?.Value) {
+      return data.Parameter?.Value;
     }
     throw new Error('No parameter value found');
   }
