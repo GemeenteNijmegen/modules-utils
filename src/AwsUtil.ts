@@ -30,7 +30,7 @@ export class AwsUtil {
   /**
    * Get a parameter from parameter store. This is used
    * as a workaround for the 4kb limit for environment variables.
-   *  
+   *
    * @param {string} parameter Name of the ssm param
    * @returns param value
    */
