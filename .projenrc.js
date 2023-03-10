@@ -10,6 +10,10 @@ const project = new GemeenteNijmegenTsPackage({
       branches: ['main'], // No acceptance branch
     },
   },
+  deps: [
+    '@aws-sdk/client-secrets-manager',
+    '@aws-sdk/client-ssm',
+  ],
   devDeps: [
     '@gemeentenijmegen/projen-project-type',
   ],
