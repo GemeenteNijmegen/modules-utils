@@ -16,6 +16,7 @@ const project = new GemeenteNijmegenTsPackage({
   ],
   devDeps: [
     '@gemeentenijmegen/projen-project-type',
+    'aws-sdk-client-mock',
   ],
   packageName: projectName,
   enableAutoMergeDependencies: false, // No acceptance branch
