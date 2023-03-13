@@ -1,4 +1,2 @@
-import { AWS } from './AWS';
-import { Bsn } from './Bsn';
-exports.Bsn = Bsn;
-exports.AWS = AWS;
+export { Bsn } from './Bsn';
+export { AWS } from './AWS';
