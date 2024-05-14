@@ -5,6 +5,7 @@ const projectName = '@gemeentenijmegen/utils';
 const project = new GemeenteNijmegenTsPackage({
   defaultReleaseBranch: 'main',
   name: projectName,
+  repository: 'https://github.com/gemeentenijmegen/modules-utils',
   depsUpgradeOptions: {
     workflowOptions: {
       branches: ['main'], // No acceptance branch
