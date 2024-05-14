@@ -2,7 +2,7 @@
   "name": "@gemeentenijmegen/utils",
   "repository": {
     "type": "git",
-    "url": "@gemeentenijmegen/modules-utils"
+    "url": "https://github.com/gemeentenijmegen/modules-utils"
   },
   "scripts": {
     "build": "npx projen build",
