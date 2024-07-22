@@ -14,9 +14,12 @@ const project = new GemeenteNijmegenTsPackage({
   deps: [
     '@aws-sdk/client-secrets-manager',
     '@aws-sdk/client-ssm',
+    '@aws-sdk/client-s3',
+    '@aws-sdk/s3-request-presigner',
   ],
   devDeps: [
     '@gemeentenijmegen/projen-project-type',
+    '@testcontainers/localstack',
     'aws-sdk-client-mock',
   ],
   packageName: projectName,
