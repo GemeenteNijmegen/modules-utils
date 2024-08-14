@@ -4,12 +4,12 @@
  * Optionally, some values can be provided a default value. Usage:
  * If you need 'process.env.SOME_CONFIG_PARAM` to be set:
  *
- * ```const env = enviromnentVariables['SOME_CONFIG_PARAM']```
+ * ```const env = environmentVariables['SOME_CONFIG_PARAM']```
  *
  * Then use `env.SOME_CONFIG_PARAM`. Will throw if process.env.SOME_CONFIG_PARAM
  * is not set. If you want to set a default value, use as follows:
  *
- * ```const env = enviromnentVariables['SOME_CONFIG_PARAM, SOME_OPTIONAL_PARAM', { 'SOME_OPTIONAL_VALUE': 'someDefault' }]```
+ * ```const env = environmentVariables['SOME_CONFIG_PARAM, SOME_OPTIONAL_PARAM', { 'SOME_OPTIONAL_VALUE': 'someDefault' }]```
  *
  * @param keys the environment keys that need to be set
  * @param defaults default values can be provided for optional keys
