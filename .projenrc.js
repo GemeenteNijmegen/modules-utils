@@ -19,7 +19,7 @@ const project = new GemeenteNijmegenTsPackage({
   ],
   devDeps: [
     '@gemeentenijmegen/projen-project-type',
-    '@testcontainers/localstack',
+    // '@testcontainers/localstack@10.10.4',
     'aws-sdk-client-mock',
   ],
   packageName: projectName,

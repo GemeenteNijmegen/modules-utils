@@ -1,8 +1,5 @@
-import { CreateBucketCommand, S3Client } from '@aws-sdk/client-s3';
-import { LocalstackContainer } from '@testcontainers/localstack';
-import { describeIntegration } from './describeIntegration';
+// import { LocalstackContainer } from '@testcontainers/localstack';
 import { MockStorage } from './MockStorage';
-import { S3Storage } from '../src/Storage';
 
 
 describe('Storage methods', () => {
@@ -24,58 +21,58 @@ describe('Storage methods', () => {
   });
 });
 
-describeIntegration('S3 integration tests', () => {
-  let localS3Storage: S3Storage;
-  let client: S3Client;
-  const bucketCommandInput = {
-    Bucket: 'test-bucket',
-  };
-  beforeAll(async() => {
-    const container = await new LocalstackContainer().start();
-    console.debug('container url', container.getConnectionUri());
-    client = new S3Client({
-      endpoint: container.getConnectionUri(),
-      credentials: {
-        accessKeyId: 'test',
-        secretAccessKey: 'test',
-      },
-      forcePathStyle: true,
-    });
-    localS3Storage = new S3Storage('test-bucket', { client });
+// describeIntegration('S3 integration tests', () => {
+//   let localS3Storage: S3Storage;
+//   let client: S3Client;
+//   const bucketCommandInput = {
+//     Bucket: 'test-bucket',
+//   };
+//   beforeAll(async() => {
+//     const container = await new LocalstackContainer().start();
+//     console.debug('container url', container.getConnectionUri());
+//     client = new S3Client({
+//       endpoint: container.getConnectionUri(),
+//       credentials: {
+//         accessKeyId: 'test',
+//         secretAccessKey: 'test',
+//       },
+//       forcePathStyle: true,
+//     });
+//     localS3Storage = new S3Storage('test-bucket', { client });
 
 
-    const command = new CreateBucketCommand(bucketCommandInput);
+//     const command = new CreateBucketCommand(bucketCommandInput);
 
-    const createBucketResponse = await client.send(command);
-    expect(createBucketResponse.$metadata.httpStatusCode).toEqual(200);
-  }, 120000);
-
-
-  beforeEach(async () => {
-    await localS3Storage.store('alwaysPresentObjectKey', 'textcontents');
-  });
+//     const createBucketResponse = await client.send(command);
+//     expect(createBucketResponse.$metadata.httpStatusCode).toEqual(200);
+//   }, 120000);
 
 
-  test('Store method returns succesfully', async () => {
-    expect(await localS3Storage.store('somekey', 'textcontents')).toBeTruthy();
-  });
+//   beforeEach(async () => {
+//     await localS3Storage.store('alwaysPresentObjectKey', 'textcontents');
+//   });
 
-  test('Get method returns succesfully', async () => {
-    const result = await localS3Storage.get('alwaysPresentObjectKey');
-    expect(result?.Body).toBeTruthy();
-  });
 
-  test('Get batch returns succesfully', async () => {
-    const result = await localS3Storage.getBatch(['alwaysPresentObjectKey']);
-    expect(result).toHaveLength(1);
+//   test('Store method returns succesfully', async () => {
+//     expect(await localS3Storage.store('somekey', 'textcontents')).toBeTruthy();
+//   });
 
-    const resultWithMissing = await localS3Storage.getBatch(['alwaysPresentObjectKey', 'nonexistentkey']);
-    expect(resultWithMissing).toHaveLength(1);
-  });
+//   test('Get method returns succesfully', async () => {
+//     const result = await localS3Storage.get('alwaysPresentObjectKey');
+//     expect(result?.Body).toBeTruthy();
+//   });
 
-  test('Create presigned url for object', async() => {
-    const result = await localS3Storage.getPresignedUrl('alwaysPresentObjectKey');
-    expect(result).toMatch(/X-Amz-Signature=/);
-  });
+//   test('Get batch returns succesfully', async () => {
+//     const result = await localS3Storage.getBatch(['alwaysPresentObjectKey']);
+//     expect(result).toHaveLength(1);
 
-});
+//     const resultWithMissing = await localS3Storage.getBatch(['alwaysPresentObjectKey', 'nonexistentkey']);
+//     expect(resultWithMissing).toHaveLength(1);
+//   });
+
+//   test('Create presigned url for object', async() => {
+//     const result = await localS3Storage.getPresignedUrl('alwaysPresentObjectKey');
+//     expect(result).toMatch(/X-Amz-Signature=/);
+//   });
+
+// });

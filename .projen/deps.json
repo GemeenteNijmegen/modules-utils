@@ -5,10 +5,6 @@
       "type": "build"
     },
     {
-      "name": "@testcontainers/localstack",
-      "type": "build"
-    },
-    {
       "name": "@types/jest",
       "type": "build"
     },
