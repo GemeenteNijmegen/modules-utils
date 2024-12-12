@@ -5,7 +5,8 @@ describe('Creating a BSN', () => {
     expect(() => new Bsn('999996708')).not.toThrow();
     expect(() => new Bsn('999996630')).not.toThrow();
     expect(() => new Bsn('999996642')).not.toThrow();
-    expect(() => new Bsn('999996654')).not.toThrow();
+    expect(() => new Bsn('68155219')).not.toThrow();
+    expect(() => new Bsn('068155219')).not.toThrow();
     expect(() => new Bsn('999996666')).not.toThrow();
     expect(() => new Bsn('999996678')).not.toThrow();
   });
@@ -26,6 +27,7 @@ describe('Validating a BSN', () => {
   test('Elfproef succeeds for valid BSN', async() => {
     expect(Bsn.elfproef('999996708')).toBeTruthy();
     expect(Bsn.elfproef('999996630')).toBeTruthy();
+    expect(() => Bsn.elfproef('068155219')).toBeTruthy();
   });
   test('Elfproef fails for invalid BSN', async() => {
     expect(Bsn.elfproef('999998620')).toBeFalsy();
