@@ -132,7 +132,7 @@ export class S3Storage implements Storage {
     return true;
   }
 
-  public async copyInSameRegion(sourceBucket: string, sourceKey: string, destinationKey: string) {
+  private async copyInSameRegion(sourceBucket: string, sourceKey: string, destinationKey: string) {
     console.debug(
       `syncing ${sourceBucket}/${sourceKey} to ${destinationKey}`,
     );
