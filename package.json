@@ -27,6 +27,7 @@
   "devDependencies": {
     "@gemeentenijmegen/projen-project-type": "^1.10.0",
     "@stylistic/eslint-plugin": "^2",
+    "@testcontainers/localstack": "^10.24.2",
     "@types/jest": "^28.1.8",
     "@types/node": "^18",
     "@typescript-eslint/eslint-plugin": "^8",

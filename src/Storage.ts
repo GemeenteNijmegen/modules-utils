@@ -1,4 +1,5 @@
 import {
+  CopyObjectCommand,
   GetObjectCommand,
   GetObjectCommandInput,
   GetObjectCommandOutput,
@@ -83,15 +84,29 @@ export class S3Storage implements Storage {
     return bucketObjects.map(bucketObject => bucketObject.value);
   }
 
+  /**
+   * Copy an S3 object between buckets.
+   *
+   * If both buckets are in the same region, this will use the CopyObject command.
+   * **NB**: This requires s3:getObjectTagging permissions on the source object.
+   */
   public async copy(
     sourceBucket: string,
     sourceKey: string,
     sourceRegion: string,
     destinationKey: string,
   ) {
-    console.debug(
-      `copying ${sourceKey} in ${sourceRegion} to ${destinationKey}`,
-    );
+    if (this.clients.default.region == sourceRegion) {
+      console.debug(
+        'Source and destination in same region, use more efficiënt copy command',
+      );
+      try {
+        return await this.copyInSameRegion(sourceBucket, sourceKey, destinationKey);
+      } catch (error) {
+        console.warn('Efficient Copy command failed. Do you have s3:getObjectTagging permissions set for the source bucket? Falling back to old style copy.');
+      }
+    }
+
     const getObjectCommand = new GetObjectCommand({
       Bucket: sourceBucket,
       Key: sourceKey,
@@ -114,6 +129,29 @@ export class S3Storage implements Storage {
     console.debug(
       `successfully copied ${sourceBucket}/${sourceKey} to ${destinationKey}`,
     );
+    return true;
+  }
+
+  public async copyInSameRegion(sourceBucket: string, sourceKey: string, destinationKey: string) {
+    console.debug(
+      `syncing ${sourceBucket}/${sourceKey} to ${destinationKey}`,
+    );
+
+    const command = new CopyObjectCommand({
+      CopySource: `${sourceBucket}/${sourceKey}`,
+      Bucket: this.bucket,
+      Key: destinationKey,
+    });
+
+    try {
+      await this.s3Client.send(command);
+      console.debug(
+        `successfully copied ${sourceBucket}/${sourceKey} to ${destinationKey}`,
+      );
+    } catch (err) {
+      console.error(`Failed to copy object: ${err}`);
+      throw err;
+    }
     return true;
   }
 
