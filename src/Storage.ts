@@ -138,7 +138,7 @@ export class S3Storage implements Storage {
     );
 
     const command = new CopyObjectCommand({
-      CopySource: `${sourceBucket}/${sourceKey}`,
+      CopySource: encodeURI(`${sourceBucket}/${sourceKey}`),
       Bucket: this.bucket,
       Key: destinationKey,
     });
@@ -149,7 +149,7 @@ export class S3Storage implements Storage {
         `successfully copied ${sourceBucket}/${sourceKey} to ${destinationKey}`,
       );
     } catch (err) {
-      console.error(`Failed to copy object: ${err}`);
+      console.error(`Failed to copy object: ${sourceBucket}/${sourceKey} ${err}`);
       throw err;
     }
     return true;
