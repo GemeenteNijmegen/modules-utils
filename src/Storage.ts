@@ -122,7 +122,7 @@ export class S3Storage implements Storage {
     });
     try {
       const object = await this.clientForRegion(sourceRegion).send(
-        getObjectCommand
+        getObjectCommand,
       );
       const putObjectCommand = new PutObjectCommand({
         Bucket: this.bucket,
