@@ -96,7 +96,8 @@ export class S3Storage implements Storage {
     sourceRegion: string,
     destinationKey: string,
   ) {
-    if (this.clients.default.region == sourceRegion) {
+    const currentRegion = this.clients.default.region ?? process.env.AWS_REGION;
+    if (currentRegion == sourceRegion) {
       console.debug(
         'Source and destination in same region, use more efficiënt copy command',
       );
@@ -107,13 +108,21 @@ export class S3Storage implements Storage {
       }
     }
 
+    await this.copyByGetAndPutObject(sourceBucket, sourceKey, sourceRegion, destinationKey);
+    console.debug(
+      `successfully copied ${sourceBucket}/${sourceKey} to ${destinationKey}`,
+    );
+    return true;
+  }
+
+  private async copyByGetAndPutObject(sourceBucket: string, sourceKey: string, sourceRegion: string, destinationKey: string) {
     const getObjectCommand = new GetObjectCommand({
       Bucket: sourceBucket,
       Key: sourceKey,
     });
     try {
       const object = await this.clientForRegion(sourceRegion).send(
-        getObjectCommand,
+        getObjectCommand
       );
       const putObjectCommand = new PutObjectCommand({
         Bucket: this.bucket,
@@ -126,10 +135,6 @@ export class S3Storage implements Storage {
     } catch (err) {
       console.error(err);
     }
-    console.debug(
-      `successfully copied ${sourceBucket}/${sourceKey} to ${destinationKey}`,
-    );
-    return true;
   }
 
   private async copyInSameRegion(sourceBucket: string, sourceKey: string, destinationKey: string) {
