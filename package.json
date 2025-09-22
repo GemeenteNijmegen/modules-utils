@@ -25,7 +25,7 @@
     "projen": "npx projen"
   },
   "devDependencies": {
-    "@gemeentenijmegen/projen-project-type": "^1.11.2",
+    "@gemeentenijmegen/projen-project-type": "^1.11.3",
     "@stylistic/eslint-plugin": "^2",
     "@testcontainers/localstack": "^10.28.0",
     "@types/jest": "^28.1.8",
@@ -45,10 +45,10 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.864.0",
-    "@aws-sdk/client-secrets-manager": "^3.864.0",
-    "@aws-sdk/client-ssm": "^3.864.0",
-    "@aws-sdk/s3-request-presigner": "^3.864.0"
+    "@aws-sdk/client-s3": "^3.893.0",
+    "@aws-sdk/client-secrets-manager": "^3.893.0",
+    "@aws-sdk/client-ssm": "^3.893.0",
+    "@aws-sdk/s3-request-presigner": "^3.893.0"
   },
   "main": "lib/index.js",
   "license": "EUPL-1.2",
