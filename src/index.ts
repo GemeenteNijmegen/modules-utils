@@ -1,4 +1,6 @@
-export { Bsn } from './Bsn';
+export { authenticate } from './authenticate';
 export { AWS } from './AWS';
-export { Storage, S3Storage } from './Storage';
+export { Bsn } from './Bsn';
 export { environmentVariables } from './environmentVariables';
+export { S3Storage, Storage } from './Storage';
+
