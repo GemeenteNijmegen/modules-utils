@@ -21,6 +21,7 @@ const project = new GemeenteNijmegenTsPackage({
     '@gemeentenijmegen/projen-project-type',
     '@testcontainers/localstack',
     'aws-sdk-client-mock',
+    '@types/aws-lambda'
   ],
   packageName: projectName,
   enableAutoMergeDependencies: false, // No acceptance branch
