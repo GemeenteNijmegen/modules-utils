@@ -16,12 +16,12 @@ const project = new GemeenteNijmegenTsPackage({
     '@aws-sdk/client-ssm',
     '@aws-sdk/client-s3',
     '@aws-sdk/s3-request-presigner',
+    '@types/aws-lambda'
   ],
   devDeps: [
     '@gemeentenijmegen/projen-project-type',
     '@testcontainers/localstack',
     'aws-sdk-client-mock',
-    '@types/aws-lambda'
   ],
   packageName: projectName,
   enableAutoMergeDependencies: false, // No acceptance branch
