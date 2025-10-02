@@ -4,7 +4,6 @@ import { environmentVariables } from './environmentVariables';
 
 const ALLOWED_HEADERS = [
   'X-Authorization',
-  'X-Authorization',
   'Authorization',
   'authorization',
   'x-api-key',
@@ -16,7 +15,6 @@ let API_KEY: string | undefined = undefined;
  * Takes the API gateway event and tries to authenticate it.
  * The API key is loaded an cached using API_KEY_ARN env variable (which must be set).
  * The API key must have a `Token ` prefix and can be in the following headers
- *   - 'X-Authorization'
  *   - 'X-Authorization'
  *   - 'Authorization'
  *   - 'authorization'
