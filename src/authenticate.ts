@@ -21,7 +21,7 @@ let API_KEY: string | undefined = undefined;
  *   - 'Authorization'
  *   - 'authorization'
  *   - 'x-api-key'
- * @param event 
+ * @param event The API gateway proxy event
  * @returns - true when authentication was sucessful throws an error otherwise
  */
 export async function authenticate(event: APIGatewayProxyEvent | APIGatewayProxyEventV2) {
