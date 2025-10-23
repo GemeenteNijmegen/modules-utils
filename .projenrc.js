@@ -23,7 +23,6 @@ const project = new GemeenteNijmegenTsPackage({
     '@testcontainers/localstack',
     'aws-sdk-client-mock',
   ],
-  npmTrustedPublishing: true,
   packageName: projectName,
   enableAutoMergeDependencies: false, // No acceptance branch
 });
