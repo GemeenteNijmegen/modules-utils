@@ -1,10 +1,11 @@
-const { GemeenteNijmegenTsPackage } = require('@gemeentenijmegen/projen-project-type');
+import { GemeenteNijmegenTsPackage } from '@gemeentenijmegen/projen-project-type';
 
 const projectName = '@gemeentenijmegen/utils';
 
 const project = new GemeenteNijmegenTsPackage({
   defaultReleaseBranch: 'main',
   name: projectName,
+  projenrcTs: true,
   repository: 'https://github.com/GemeenteNijmegen/modules-utils.git',
   depsUpgradeOptions: {
     workflowOptions: {
