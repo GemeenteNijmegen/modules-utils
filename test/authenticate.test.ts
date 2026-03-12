@@ -10,7 +10,7 @@ beforeAll(() => {
 describe('Authentication', () => {
 
   test('No key loaded returns 401', async () => {
-    jest.spyOn(AWS, 'getSecret').mockImplementation((_arn) => {
+    jest.spyOn(AWS, 'getSecret').mockImplementation(() => {
       return Promise.resolve(undefined) as any;
     });
     const event: Partial<APIGatewayProxyEventV2> = {
@@ -22,7 +22,7 @@ describe('Authentication', () => {
 
 
   test('No key in request returns 401', async () => {
-    jest.spyOn(AWS, 'getSecret').mockImplementation((_arn) => {
+    jest.spyOn(AWS, 'getSecret').mockImplementation(() => {
       return Promise.resolve('geheim');
     });
     const event: Partial<APIGatewayProxyEventV2> = {
@@ -33,7 +33,7 @@ describe('Authentication', () => {
   });
 
   test('Wrong key in request returns 401', async () => {
-    jest.spyOn(AWS, 'getSecret').mockImplementation((_arn) => {
+    jest.spyOn(AWS, 'getSecret').mockImplementation(() => {
       return Promise.resolve('geheim');
     });
     const event: Partial<APIGatewayProxyEventV2> = {
@@ -45,7 +45,7 @@ describe('Authentication', () => {
   });
 
   test('Success using authorization', async () => {
-    jest.spyOn(AWS, 'getSecret').mockImplementation((_arn) => {
+    jest.spyOn(AWS, 'getSecret').mockImplementation(() => {
       return Promise.resolve('geheim');
     });
     const event: Partial<APIGatewayProxyEventV2> = {
@@ -58,7 +58,7 @@ describe('Authentication', () => {
   });
 
   test('Success using x-api-key', async () => {
-    jest.spyOn(AWS, 'getSecret').mockImplementation((_arn) => {
+    jest.spyOn(AWS, 'getSecret').mockImplementation(() => {
       return Promise.resolve('geheim');
     });
     const event: Partial<APIGatewayProxyEventV2> = {
