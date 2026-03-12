@@ -103,7 +103,7 @@ export class S3Storage implements Storage {
       );
       try {
         return await this.copyInSameRegion(sourceBucket, sourceKey, destinationKey);
-      } catch (error) {
+      } catch {
         console.warn('Efficient Copy command failed. Do you have s3:getObjectTagging permissions set for the source bucket? Falling back to old style copy.');
       }
     }
