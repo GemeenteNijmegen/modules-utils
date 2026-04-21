@@ -232,7 +232,7 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@18 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@gemeentenijmegen/projen-project-type,@testcontainers/localstack,@types/jest,@types/node,aws-sdk-client-mock,eslint-import-resolver-typescript,eslint-plugin-import,jest,projen,ts-jest,ts-node,typescript,@aws-sdk/client-s3,@aws-sdk/client-secrets-manager,@aws-sdk/client-ssm,@aws-sdk/s3-request-presigner,@types/aws-lambda"
+          "exec": "npx npm-check-updates@20 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@gemeentenijmegen/projen-project-type,@testcontainers/localstack,@types/jest,@types/node,aws-sdk-client-mock,eslint-import-resolver-typescript,eslint-plugin-import,jest,projen,ts-jest,ts-node,typescript,@aws-sdk/client-s3,@aws-sdk/client-secrets-manager,@aws-sdk/client-ssm,@aws-sdk/s3-request-presigner,@types/aws-lambda"
         },
         {
           "exec": "yarn install --check-files"
