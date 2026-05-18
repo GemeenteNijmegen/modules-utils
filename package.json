@@ -25,7 +25,7 @@
     "projen": "projen"
   },
   "devDependencies": {
-    "@gemeentenijmegen/projen-project-type": "^1.12.5",
+    "@gemeentenijmegen/projen-project-type": "^1.12.7",
     "@stylistic/eslint-plugin": "^2",
     "@testcontainers/localstack": "^10.28.0",
     "@types/jest": "^28.1.8",
@@ -40,16 +40,16 @@
     "eslint-plugin-import": "^2.32.0",
     "jest": "^27",
     "jest-junit": "^16",
-    "projen": "^0.99.27",
+    "projen": "^0.99.52",
     "ts-jest": "^29.4.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.1033.0",
-    "@aws-sdk/client-secrets-manager": "^3.1033.0",
-    "@aws-sdk/client-ssm": "^3.1033.0",
-    "@aws-sdk/s3-request-presigner": "^3.1033.0",
+    "@aws-sdk/client-s3": "^3.1040.0",
+    "@aws-sdk/client-secrets-manager": "^3.1040.0",
+    "@aws-sdk/client-ssm": "^3.1040.0",
+    "@aws-sdk/s3-request-presigner": "^3.1040.0",
     "@types/aws-lambda": "^8.10.161"
   },
   "main": "lib/index.js",
