@@ -47,10 +47,10 @@
     "typescript": "^5.9.3"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.1144.0",
-    "@aws-sdk/client-secrets-manager": "^3.1144.0",
-    "@aws-sdk/client-ssm": "^3.1144.0",
-    "@aws-sdk/s3-request-presigner": "^3.1144.0",
+    "@aws-sdk/client-s3": "^3.1146.0",
+    "@aws-sdk/client-secrets-manager": "^3.1146.0",
+    "@aws-sdk/client-ssm": "^3.1146.0",
+    "@aws-sdk/s3-request-presigner": "^3.1146.0",
     "@types/aws-lambda": "^8.10.164"
   },
   "devEngines": {
